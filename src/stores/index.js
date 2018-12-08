@@ -5,7 +5,13 @@ class ListStore {
   @observable list = [];
 
   @action addListItem = (item) => {
-    this.list.push(item);
+    const newItem = {
+      value : item,
+      id: this.list.length
+    };
+
+    this.list = this.list.slice();
+    this.list.push(newItem);
   }
 
 }
